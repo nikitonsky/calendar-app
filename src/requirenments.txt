@@ -1,0 +1,9 @@
+sqlalchemy==1.4.46
+uvicorn[standard]
+starlette==0.23.1
+databases[asyncpg]
+httpx==0.23.3
+testcontainers[posgres]
+protobuf==3.20.0
+python-dateutil==2.8.2
+psycopg2-binary==2.9.5

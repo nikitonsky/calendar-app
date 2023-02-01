@@ -1,0 +1,42 @@
+syntax = 'proto3';
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+message User {
+    string username = 1;
+}
+
+enum RepititionRule {
+    NONE = 0;
+    DAILY = 1;
+    WEEKLY = 2;
+    MONTHLY = 3;
+    YEARLY = 4;
+}
+
+message Event {
+    string user = 1;
+    string description = 10;
+    google.protobuf.Timestamp start_time = 20;
+    google.protobuf.Timestamp end_time = 30;
+    RepititionRule repitition_rule = 40; 
+    repeated string participants = 50;
+}
+
+message ListEventsResp {
+    repeated Event events = 1;
+}
+
+message FindTheGapRequest {
+    repeated string users = 1;
+
+    google.protobuf.Timestamp since = 10;
+    google.protobuf.Duration interval = 20;
+}
+
+
+message FindTheGapResponse {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 10;
+}
